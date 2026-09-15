@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#7c3aed">
+    <meta name="description" content="Calculadora de precificação Atelie3D">
+
+    <title>Atelie3D • Precificação</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                A3D
+            </div>
+
+            <div class="logo-text">
+                <strong>Atelie3D</strong>
+                <span>Precificação</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button class="menu-btn active" data-page="calculadora">
+                <span>🧮</span>
+                <label>Calculadora</label>
+            </button>
+
+
+            <button class="menu-btn" data-page="produtos">
+                <span>📦</span>
+                <label>Produtos</label>
+            </button>
+
+
+            <button class="menu-btn" data-page="configuracoes">
+                <span>⚙️</span>
+                <label>Configurações</label>
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= CONTEÚDO ================= -->
+
+    <main class="content">
+
+
+        <!-- =================================================
+             CALCULADORA
+        ================================================== -->
+
+        <section id="calculadora" class="page active">
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>Calculadora de Precificação</h1>
+
+                    <p>
+                        Calcule o preço ideal considerando todos os seus custos.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <div class="calculator-grid">
+
+
+                <!-- ================= CUSTOS ================= -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <div>
+                            <h2>Custos do produto</h2>
+
+                            <span>
+                                Informe os custos da produção
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="field">
+
+                            <label>
+                                Filamento usado (g)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="filamentoGramas"
+                                value="20"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Preço do filamento (R$/kg)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="filamentoKg"
+                                value="100"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Tempo de impressão (horas)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="tempoImpressao"
+                                value="2"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Consumo da impressora (W)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="consumoW"
+                                value="120"
+                                min="0"
+                                step="1"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Valor da energia (R$/kWh)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="valorKwh"
+                                value="0.90"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Manutenção (R$/hora)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="manutencaoHora"
+                                value="1"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Mão de obra (R$/hora)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="maoObraHora"
+                                value="10"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Tempo de mão de obra (horas)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="tempoMaoObra"
+                                value="0.25"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Embalagem (R$)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="embalagem"
+                                value="1"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Outros custos (R$)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="outrosCustos"
+                                value="0"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Perdas (%)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="perdas"
+                                value="5"
+                                min="0"
+                                step="0.1"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= VENDA ================= -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <div>
+
+                            <h2>Venda</h2>
+
+                            <span>
+                                Escolha onde você vai vender
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Canal de venda
+                        </label>
+
+                        <select id="canalVenda"></select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Tipo de lucro
+                        </label>
+
+
+                        <div class="profit-options">
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="tipoLucro"
+                                    value="percentual"
+                                    checked
+                                >
+
+                                <span>
+                                    Percentual
+                                </span>
+
+                            </label>
+
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="tipoLucro"
+                                    value="valor"
+                                >
+
+                                <span>
+                                    Valor em R$
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label id="labelLucro">
+                            Lucro desejado (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="lucroDesejado"
+                            value="100"
+                            min="0"
+                            step="0.1"
+                        >
+
+                    </div>
+
+
+                    <!-- ================= RESULTADO ================= -->
+
+                    <div class="result-box">
+
+                        <div class="result-main">
+
+                            <span>
+                                Preço sugerido
+                            </span>
+
+                            <strong id="precoSugerido">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Custo do filamento
+                            </span>
+
+                            <strong id="resultadoFilamento">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Energia
+                            </span>
+
+                            <strong id="resultadoEnergia">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Manutenção
+                            </span>
+
+                            <strong id="resultadoManutencao">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Mão de obra
+                            </span>
+
+                            <strong id="resultadoMaoObra">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Embalagem
+                            </span>
+
+                            <strong id="resultadoEmbalagem">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Outros custos
+                            </span>
+
+                            <strong id="resultadoOutros">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Perdas
+                            </span>
+
+                            <strong id="resultadoPerdas">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row taxa">
+
+                            <span>
+                                Taxa do canal
+                            </span>
+
+                            <strong id="resultadoTaxa">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <hr>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Custo total
+                            </span>
+
+                            <strong id="resultadoCustoTotal">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Valor líquido
+                            </span>
+
+                            <strong id="resultadoLiquido">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row lucro">
+
+                            <span>
+                                Lucro real
+                            </span>
+
+                            <strong id="resultadoLucro">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-row">
+
+                            <span>
+                                Margem sobre a venda
+                            </span>
+
+                            <strong id="resultadoMargem">
+                                0%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= BOTÃO PRODUTO ================= -->
+
+                    <button
+                        id="adicionarComoProduto"
+                        class="primary-btn add-product-btn"
+                    >
+                        + Adicionar como produto
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRODUTOS
+        ================================================== -->
+
+        <section id="produtos" class="page">
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>
+                        Produtos
+                    </h1>
+
+                    <p>
+                        Produtos salvos na sua calculadora.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <div
+                id="listaProdutos"
+                class="products-grid"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONFIGURAÇÕES
+        ================================================== -->
+
+        <section id="configuracoes" class="page">
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>
+                        Configurações
+                    </h1>
+
+                    <p>
+                        Configure as taxas dos seus canais de venda.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <div>
+
+                        <h2>
+                            Taxas e marketplaces
+                        </h2>
+
+                        <span>
+                            Altere as taxas sempre que precisar.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="primary-btn"
+                        id="adicionarMarketplace"
+                    >
+                        + Adicionar marketplace
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="listaMarketplaces"
+                    class="marketplaces"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL MARKETPLACE
+===================================================== -->
+
+<div
+    id="modalMarketplace"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    Novo marketplace
+                </h2>
+
+                <p>
+                    Cadastre um novo canal de venda.
+                </p>
+
+            </div>
+
+
+            <button
+                id="fecharModal"
+                class="close-btn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Nome do marketplace
+            </label>
+
+            <input
+                type="text"
+                id="novoMarketplaceNome"
+                placeholder="Ex.: TikTok Shop"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Taxa percentual (%)
+            </label>
+
+            <input
+                type="number"
+                id="novoMarketplacePercentual"
+                value="0"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Taxa fixa (R$)
+            </label>
+
+            <input
+                type="number"
+                id="novoMarketplaceFixa"
+                value="0"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary-btn"
+                id="cancelarMarketplace"
+            >
+                Cancelar
+            </button>
+
+
+            <button
+                class="primary-btn"
+                id="salvarMarketplace"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

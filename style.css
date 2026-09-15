@@ -1,0 +1,1034 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+
+    --primary: #7c3aed;
+    --primary-dark: #5b21b6;
+
+    --background: #f6f5fa;
+
+    --card: #ffffff;
+
+    --text: #202024;
+
+    --muted: #777783;
+
+    --border: #e8e5ef;
+
+    --success: #16a34a;
+
+    --danger: #dc2626;
+
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+}
+
+
+button,
+input,
+select {
+
+    font: inherit;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+
+    width: 250px;
+
+    min-height: 100vh;
+
+    background: #17131f;
+
+    color: white;
+
+    padding: 25px 16px;
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 5px 10px 30px;
+
+}
+
+
+.logo-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a855f7,
+            #6d28d9
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+}
+
+
+.logo strong {
+
+    display: block;
+
+    font-size: 18px;
+
+}
+
+
+.logo span {
+
+    display: block;
+
+    color: #aaa4b5;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.menu-btn {
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa4b5;
+
+    padding: 13px 14px;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    transition: .2s;
+
+}
+
+
+.menu-btn:hover {
+
+    background: #26202f;
+
+    color: white;
+
+}
+
+
+.menu-btn.active {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+
+.menu-btn span {
+
+    width: 22px;
+
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+
+    margin-left: 250px;
+
+    width: calc(100% - 250px);
+
+    padding: 35px;
+
+}
+
+
+.page {
+
+    display: none;
+
+}
+
+
+.page.active {
+
+    display: block;
+
+}
+
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.page-header h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.page-header p {
+
+    color: var(--muted);
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(30, 20, 50, .04);
+
+}
+
+
+.card-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.card-title h2 {
+
+    font-size: 18px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.card-title span {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   CALCULADORA
+===================================================== */
+
+.calculator-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        1fr;
+
+    gap: 25px;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 18px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 17px;
+
+}
+
+
+.field label {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.field input,
+.field select {
+
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 9px;
+
+    background: white;
+
+    outline: none;
+
+    transition: .2s;
+
+}
+
+
+.field input:focus,
+.field select:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(124, 58, 237, .08);
+
+}
+
+
+/* =====================================================
+   LUCRO
+===================================================== */
+
+.profit-options {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.radio-option {
+
+    flex: 1;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 9px;
+
+    padding: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+}
+
+
+.radio-option:has(input:checked) {
+
+    border-color:
+        var(--primary);
+
+    background: #faf7ff;
+
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+.result-box {
+
+    background: #faf9fc;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+}
+
+
+.result-main {
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #9333ea
+        );
+
+    color: white;
+
+}
+
+
+.result-main span {
+
+    display: block;
+
+    font-size: 13px;
+
+    opacity: .85;
+
+    margin-bottom: 5px;
+
+}
+
+
+.result-main strong {
+
+    font-size: 32px;
+
+}
+
+
+.result-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 11px 16px;
+
+    font-size: 13px;
+
+}
+
+
+.result-row span {
+
+    color: var(--muted);
+
+}
+
+
+.result-row strong {
+
+    font-size: 13px;
+
+}
+
+
+.result-row.taxa strong {
+
+    color: var(--danger);
+
+}
+
+
+.result-row.lucro strong {
+
+    color: var(--success);
+
+    font-size: 15px;
+
+}
+
+
+.result-box hr {
+
+    border: 0;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    margin:
+        5px 16px;
+
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.primary-btn,
+.secondary-btn {
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding:
+        11px 17px;
+
+    font-weight: 600;
+
+}
+
+
+.primary-btn {
+
+    background:
+        var(--primary);
+
+    color: white;
+
+}
+
+
+.primary-btn:hover {
+
+    background:
+        var(--primary-dark);
+
+}
+
+
+.secondary-btn {
+
+    background:
+        #eeeaf4;
+
+    color: #393341;
+
+}
+
+
+/* =====================================================
+   BOTÃO ADICIONAR PRODUTO
+===================================================== */
+
+.add-product-btn {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MARKETPLACES
+===================================================== */
+
+.marketplaces {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.marketplace {
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 12px;
+
+    padding: 17px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        140px
+        140px
+        auto;
+
+    gap: 15px;
+
+    align-items: center;
+
+}
+
+
+.marketplace-name strong {
+
+    display: block;
+
+}
+
+
+.marketplace-name span {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.marketplace input {
+
+    width: 100%;
+
+    padding: 9px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 7px;
+
+}
+
+
+.delete-btn {
+
+    border: none;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    padding:
+        9px 12px;
+
+    border-radius: 7px;
+
+}
+
+
+/* =====================================================
+   PRODUTOS
+===================================================== */
+
+.products-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(280px, 1fr)
+        );
+
+    gap: 18px;
+
+}
+
+
+.product-card {
+
+    background: white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+}
+
+
+.product-card h3 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.product-price {
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: var(--primary);
+
+}
+
+
+.product-info {
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+.product-delete {
+
+    margin-top: 15px;
+
+    border: none;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    padding:
+        8px 12px;
+
+    border-radius: 7px;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, .55);
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 100;
+
+}
+
+
+.modal.active {
+
+    display: flex;
+
+}
+
+
+.modal-content {
+
+    background: white;
+
+    width: 100%;
+
+    max-width: 480px;
+
+    padding: 25px;
+
+    border-radius: 17px;
+
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+}
+
+
+.modal-header h2 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.modal-header p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.close-btn {
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 25px;
+
+    color: var(--muted);
+
+}
+
+
+.modal-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .calculator-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .marketplace {
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+
+        width: 70px;
+
+        padding:
+            15px 8px;
+
+    }
+
+
+    .logo {
+
+        justify-content: center;
+
+        padding-bottom: 20px;
+
+    }
+
+
+    .logo-text {
+
+        display: none;
+
+    }
+
+
+    .menu-btn {
+
+        justify-content: center;
+
+        padding:
+            13px 5px;
+
+    }
+
+
+    .menu-btn label {
+
+        display: none;
+
+    }
+
+
+    .content {
+
+        margin-left: 70px;
+
+        width:
+            calc(100% - 70px);
+
+        padding: 20px;
+
+    }
+
+
+    .page-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .marketplace {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .page-header h1 {
+
+        font-size: 23px;
+
+    }
+
+}
